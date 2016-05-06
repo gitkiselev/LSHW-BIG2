@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>GeoFeedback</title>
+	
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/style.css">
+	<!--<link rel="stylesheet" href="css/bundle.min.css">-->
+	<!--<script src="js/jquery-1.12.3.min.js"></script>-->
+	
+	
+	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+	
+</head>
+<body>
+<div id="map" style="width: 100%; height: 500px">
+	
+<div class="app display-none">
+			
+				<div class="header">
+					<div class="header__title">Адрес места отзыва</div>
+					<div class="header__close-btn"></div>
+				</div>
+				<div class="container">
+
+				<div class="feedback-area">
+					<ul class="feedback-area__list">
+						<!--Handlebars here-->
+					</ul>
+				</div>
+				<form class="feedback">
+					<h1 class="feedback__header">Ваш отзыв</h1>
+					<input class="feedback__name" type="text" placeholder="Ваше имя">
+					<input class="feedback__place" type="text" placeholder="Укажите место">
+					<textarea class="feedback__text" name="feedback-text" placeholder="Поделитесь впечатлениями"></textarea>
+
+					<input type="hidden" name="coords" value="{{coords}}">
+        			<input type="hidden" name="address" value="{{address}}">
+					<div class="feedback__add"><a class="feedback__link" href="">Добавить</a></div>
+				</form>
+			</div>
+		</div>
+
+
+	
+</div>
+	
+
+		
+	
+
+<script id="reviewTemplate" type="text/x-handlebars-template">
+				{{#each reviews}}
+					
+					
+						<li class="feedback-area__item">
+							<div class="feedback-area__user">{{user}}</div>
+							<div class="feedback-area__place">{{place}}</div>
+							<div class="feedback-area__date">{{date}}</div><!--с сервера-->
+							<div class="feedback-area__review">{{review}}</div>
+						</li>
+					
+				{{/each}}	
+				</script>
+	<script src="js/handlebars-v4.0.5.js"></script>
+	<script src="js/script.js"></script>
+</body>
+</html>
